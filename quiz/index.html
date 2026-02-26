@@ -13,7 +13,8 @@
   <meta property="og:locale" content="es_US">
   <meta property="og:site_name" content="Erika Parra Services">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Meta Pixel Code -->
   <script>
@@ -32,21 +33,26 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --blue: #1B3550;
-      --blue-light: #2C5282;
+      --navy: #1B3550;
+      --navy-deep: #0F2237;
+      --navy-light: #2C5282;
+      --gold: #C9993A;
+      --gold-soft: rgba(201, 153, 58, 0.08);
+      --gold-line: rgba(201, 153, 58, 0.35);
       --red: #C53030;
       --red-soft: #FFF5F5;
-      --gold: #C9993A;
       --green-wa: #25D366;
       --green-hover: #1DAF54;
       --white: #FFFFFF;
       --off-white: #FAFAF8;
-      --cream: #F7F5F2;
+      --cream: #F7F5F0;
       --gray-100: #F1EFEC;
       --gray-200: #E2DFDB;
       --gray-400: #A8A29E;
       --gray-600: #6B6560;
       --gray-800: #292524;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 20px rgba(0,0,0,0.06);
       --radius: 12px;
     }
 
@@ -55,11 +61,12 @@
     body {
       font-family: 'Outfit', -apple-system, sans-serif;
       color: var(--gray-800);
-      background: var(--off-white);
+      background: linear-gradient(180deg, #FAF8F3 0%, var(--off-white) 300px, var(--off-white) 100%);
       min-height: 100%;
       display: flex;
       flex-direction: column;
       -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
     }
 
     /* ── NAV ── */
@@ -73,11 +80,12 @@
     }
 
     .nav-brand {
+      font-family: 'Cormorant Garamond', Georgia, serif;
       font-weight: 700;
-      font-size: 15px;
-      color: var(--blue);
+      font-size: 20px;
+      color: var(--navy);
       text-decoration: none;
-      letter-spacing: 0.3px;
+      letter-spacing: 0.2px;
     }
 
     .lang-toggle {
@@ -101,38 +109,59 @@
     }
 
     .lang-btn.active {
-      background: var(--blue);
+      background: var(--navy);
       color: var(--white);
     }
 
+    /* ── TRUST BAR ── */
+    .quiz-trust-bar {
+      background: var(--gold-soft);
+      padding: 9px 24px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--gold);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--gray-100);
+      letter-spacing: 0.2px;
+    }
+    .trust-stars { letter-spacing: 1px; }
+    .trust-dot { opacity: 0.5; }
+
     /* ── PROGRESS ── */
     .progress-wrap {
-      padding: 16px 24px 0;
+      padding: 20px 24px 0;
       max-width: 560px;
       margin: 0 auto;
       width: 100%;
     }
 
+    .progress-text {
+      font-size: 13px;
+      color: var(--gray-600);
+      font-weight: 500;
+      margin-bottom: 10px;
+      letter-spacing: 0.2px;
+    }
+
     .progress-bar {
-      height: 4px;
+      height: 6px;
       background: var(--gray-200);
-      border-radius: 4px;
+      border-radius: 6px;
       overflow: hidden;
     }
 
     .progress-fill {
       height: 100%;
-      background: var(--blue);
-      border-radius: 4px;
-      transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      background: linear-gradient(90deg, var(--gold), #D4A84A);
+      border-radius: 6px;
+      transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
       width: 0%;
-    }
-
-    .progress-text {
-      font-size: 12px;
-      color: var(--gray-400);
-      margin-top: 8px;
-      font-weight: 500;
+      position: relative;
     }
 
     /* ── QUIZ CONTAINER ── */
@@ -152,20 +181,23 @@
     /* ── STEP ── */
     .step {
       display: none;
-      animation: fadeIn 0.3s ease;
     }
 
-    .step.active { display: block; }
+    .step.active {
+      display: block;
+      animation: slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(12px); }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(16px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     .step-question {
-      font-size: clamp(22px, 4vw, 30px);
-      font-weight: 800;
-      color: var(--blue);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(24px, 5vw, 34px);
+      font-weight: 700;
+      color: var(--navy);
       line-height: 1.2;
       margin-bottom: 8px;
       letter-spacing: -0.3px;
@@ -176,7 +208,7 @@
       color: var(--gray-600);
       font-weight: 300;
       margin-bottom: 32px;
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
     /* ── OPTIONS ── */
@@ -192,38 +224,49 @@
       gap: 14px;
       padding: 18px 20px;
       background: var(--white);
-      border: 2px solid var(--gray-200);
+      border: 1px solid var(--gray-200);
+      border-left: 3px solid transparent;
       border-radius: var(--radius);
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.25s ease;
       font-family: inherit;
       font-size: 15px;
       font-weight: 500;
       color: var(--gray-800);
       text-align: left;
       width: 100%;
+      box-shadow: var(--shadow-sm);
     }
 
     .option:hover {
-      border-color: var(--blue);
-      background: rgba(27,53,80,0.03);
+      border-color: var(--gold-line);
+      border-left-color: var(--gold);
+      box-shadow: var(--shadow-md);
+      background: var(--white);
     }
 
     .option.selected {
-      border-color: var(--blue);
-      background: rgba(27,53,80,0.06);
+      border-color: var(--gold-line);
+      border-left-color: var(--gold);
+      background: var(--gold-soft);
+      box-shadow: var(--shadow-md);
     }
 
     .option-icon {
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       border-radius: 10px;
-      background: var(--cream);
+      background: var(--gold-soft);
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
       font-size: 18px;
+      transition: background 0.2s;
+    }
+
+    .option.selected .option-icon {
+      background: rgba(201, 153, 58, 0.15);
     }
 
     .option-text {
@@ -241,6 +284,7 @@
       color: var(--gray-400);
       font-weight: 300;
       margin-top: 2px;
+      line-height: 1.4;
     }
 
     .option-check {
@@ -252,12 +296,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.2s;
+      transition: all 0.25s ease;
     }
 
     .option.selected .option-check {
-      border-color: var(--blue);
-      background: var(--blue);
+      border-color: var(--gold);
+      background: var(--gold);
     }
 
     .option.selected .option-check::after {
@@ -285,16 +329,20 @@
       width: 100%;
       padding: 14px 16px;
       background: var(--white);
-      border: 2px solid var(--gray-200);
+      border: 1px solid var(--gray-200);
       border-radius: var(--radius);
       font-family: inherit;
       font-size: 16px;
       color: var(--gray-800);
       outline: none;
-      transition: border-color 0.2s;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      box-shadow: var(--shadow-sm);
     }
 
-    .input-field:focus { border-color: var(--blue); }
+    .input-field:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px var(--gold-soft);
+    }
 
     .input-field::placeholder { color: var(--gray-400); }
 
@@ -315,7 +363,7 @@
 
     .btn-back {
       padding: 14px 24px;
-      background: var(--gray-100);
+      background: var(--white);
       border: 1px solid var(--gray-200);
       border-radius: 100px;
       font-family: inherit;
@@ -324,14 +372,15 @@
       color: var(--gray-600);
       cursor: pointer;
       transition: all 0.2s;
+      box-shadow: var(--shadow-sm);
     }
 
-    .btn-back:hover { background: var(--gray-200); }
+    .btn-back:hover { background: var(--gray-100); }
 
     .btn-next {
       flex: 1;
       padding: 14px 24px;
-      background: var(--blue);
+      background: var(--navy);
       border: none;
       border-radius: 100px;
       font-family: inherit;
@@ -339,11 +388,12 @@
       font-weight: 700;
       color: var(--white);
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 16px rgba(27,53,80,0.2);
     }
 
-    .btn-next:hover { background: var(--blue-light); }
-    .btn-next:disabled { opacity: 0.4; cursor: not-allowed; }
+    .btn-next:hover { background: var(--navy-light); transform: translateY(-1px); }
+    .btn-next:disabled { opacity: 0.35; cursor: not-allowed; transform: none; box-shadow: none; }
     .btn-next:active:not(:disabled) { transform: scale(0.98); }
 
     .btn-wa {
@@ -362,20 +412,77 @@
       color: var(--white);
       cursor: pointer;
       text-decoration: none;
-      transition: all 0.2s;
-      box-shadow: 0 4px 16px rgba(37,211,102,0.25);
-      margin-top: 32px;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+      margin-top: 28px;
+      animation: ctaPulse 2.5s ease-in-out infinite;
     }
 
-    .btn-wa:hover { background: var(--green-hover); transform: translateY(-1px); }
+    .btn-wa:hover { background: var(--green-hover); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(37,211,102,0.35); }
     .btn-wa:active { transform: scale(0.98); }
     .btn-wa svg { width: 22px; height: 22px; fill: currentColor; }
 
+    @keyframes ctaPulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.3); }
+      50% { box-shadow: 0 4px 28px rgba(37,211,102,0.45); }
+    }
+
+    /* ── SUMMARY ── */
+    .summary-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .summary-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 18px;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-left: 3px solid var(--gold);
+      border-radius: 8px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .summary-label {
+      font-size: 12px;
+      color: var(--gray-400);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .summary-value {
+      font-size: 14px;
+      color: var(--navy);
+      font-weight: 600;
+      text-align: right;
+    }
+
+    .overflow-notice {
+      background: var(--red-soft);
+      border: 1px solid #FED7D7;
+      border-radius: var(--radius);
+      padding: 16px;
+      margin-bottom: 24px;
+    }
+
+    .overflow-notice p {
+      font-size: 14px;
+      color: var(--red);
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
     /* ── TRUST FOOTER ── */
     .trust-footer {
-      padding: 20px 24px;
+      padding: 24px 24px;
       text-align: center;
-      border-top: 1px solid var(--gray-100);
+      border-top: 1px solid var(--gray-200);
+      background: var(--cream);
     }
 
     .trust-footer p {
@@ -406,64 +513,25 @@
     .trust-badge svg {
       width: 14px;
       height: 14px;
-      stroke: var(--green-wa);
+      stroke: var(--gold);
       fill: none;
       stroke-width: 2.5;
       stroke-linecap: round;
       stroke-linejoin: round;
     }
 
-    /* ── SUMMARY ── */
-    .summary-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 24px;
-    }
-
-    .summary-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 16px;
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: 8px;
-    }
-
-    .summary-label {
-      font-size: 13px;
-      color: var(--gray-400);
-      font-weight: 500;
-    }
-
-    .summary-value {
-      font-size: 14px;
-      color: var(--gray-800);
-      font-weight: 600;
-      text-align: right;
-    }
-
-    .overflow-notice {
-      background: var(--red-soft);
-      border: 1px solid #FED7D7;
-      border-radius: var(--radius);
-      padding: 16px;
-      margin-bottom: 24px;
-    }
-
-    .overflow-notice p {
-      font-size: 14px;
-      color: var(--red);
-      font-weight: 500;
-      line-height: 1.6;
-    }
-
     /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
       .quiz-wrap { padding: 24px 16px 40px; }
-      .option { padding: 14px 16px; }
-      .option-icon { width: 36px; height: 36px; font-size: 16px; }
+      .option { padding: 16px; }
+      .option-icon { width: 40px; height: 40px; font-size: 16px; }
+      .quiz-trust-bar { font-size: 11px; gap: 5px; padding: 8px 16px; }
+      .step-question { margin-bottom: 6px; }
+      .step-sub { margin-bottom: 24px; font-size: 14px; }
+      .progress-wrap { padding: 16px 16px 0; }
+      .nav { padding: 14px 16px; }
+      .summary-item { padding: 12px 14px; }
+      .btn-wa { padding: 16px 28px; font-size: 16px; }
     }
   </style>
 </head>
@@ -478,10 +546,20 @@
     </div>
   </nav>
 
+  <!-- TRUST BAR -->
+  <div class="quiz-trust-bar">
+    <span class="trust-stars">★★★★★</span>
+    <span data-es="600+ familias ayudadas" data-en="600+ families helped"></span>
+    <span class="trust-dot">·</span>
+    <span data-es="Consulta gratuita" data-en="Free consultation"></span>
+    <span class="trust-dot">·</span>
+    <span data-es="Respuesta en 24h" data-en="Response within 24h"></span>
+  </div>
+
   <!-- PROGRESS -->
   <div class="progress-wrap">
-    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
     <div class="progress-text" id="progress-text"></div>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
   </div>
 
   <!-- QUIZ -->
@@ -736,6 +814,7 @@
 
         <a id="wa-cta" href="#" class="btn-wa" target="_blank" rel="noopener">
           <span data-es="Iniciar conversación con Erika" data-en="Start a conversation with Erika"></span>
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none"/><polyline points="12 5 19 12 12 19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
         </a>
       </div>
 
