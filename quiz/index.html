@@ -6,7 +6,6 @@
   <meta name="facebook-domain-verification" content="dw0x17kt2ot8vdy4telrbvogt2ioif" />
   <title>Erika Parra Services — Consulta Gratuita</title>
   <meta name="description" content="Responde unas preguntas y te conectamos con nuestra especialista de inmigración.">
-  <!-- Open Graph -->
   <meta property="og:title" content="Consulta Gratuita — Erika Parra Services">
   <meta property="og:description" content="Responde unas preguntas y conecta con Erika para evaluar tu caso de inmigración.">
   <meta property="og:type" content="website">
@@ -28,7 +27,6 @@
     fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=599511379777017&ev=PageView&noscript=1" /></noscript>
-  <!-- End Meta Pixel Code -->
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -70,7 +68,6 @@
       line-height: 1.6;
     }
 
-    /* ── NAV ── */
     .nav {
       background: var(--white);
       border-bottom: 1px solid var(--gray-200);
@@ -114,7 +111,6 @@
       color: var(--white);
     }
 
-    /* ── TRUST BAR ── */
     .quiz-trust-bar {
       background: var(--gold-soft);
       padding: 9px 24px;
@@ -133,7 +129,19 @@
     .trust-stars { letter-spacing: 1px; }
     .trust-dot { opacity: 0.5; }
 
-    /* ── PROGRESS ── */
+    /* Promise bar */
+    .promise-bar {
+      background: var(--navy-deep);
+      color: var(--white);
+      padding: 14px 24px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+      line-height: 1.5;
+    }
+    .promise-bar strong { color: var(--gold); font-weight: 700; }
+
     .progress-wrap {
       padding: 20px 24px 0;
       max-width: 560px;
@@ -162,10 +170,8 @@
       border-radius: 6px;
       transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
       width: 0%;
-      position: relative;
     }
 
-    /* ── QUIZ CONTAINER ── */
     .quiz-wrap {
       flex: 1;
       display: flex;
@@ -179,15 +185,8 @@
       width: 100%;
     }
 
-    /* ── STEP ── */
-    .step {
-      display: none;
-    }
-
-    .step.active {
-      display: block;
-      animation: slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
+    .step { display: none; }
+    .step.active { display: block; animation: slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
 
     @keyframes slideIn {
       from { opacity: 0; transform: translateY(16px); }
@@ -212,7 +211,53 @@
       line-height: 1.7;
     }
 
-    /* ── OPTIONS ── */
+    /* Trust callout for sensitive steps */
+    .trust-callout {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: linear-gradient(135deg, rgba(201,153,58,0.06), rgba(201,153,58,0.02));
+      border: 1px solid var(--gold-line);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 24px;
+      font-size: 13px;
+      color: var(--gray-600);
+      line-height: 1.6;
+    }
+    .trust-callout svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--gold);
+      fill: none;
+      stroke-width: 2.5;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* Testimonial inline */
+    .inline-testimonial {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-left: 3px solid var(--gold);
+      border-radius: 10px;
+      padding: 16px 18px;
+      margin-bottom: 28px;
+    }
+    .inline-testimonial p {
+      font-size: 14px;
+      color: var(--gray-800);
+      font-style: italic;
+      line-height: 1.6;
+      margin-bottom: 6px;
+    }
+    .inline-testimonial .testimonial-attr {
+      font-size: 12px;
+      color: var(--gold);
+      font-weight: 600;
+      font-style: normal;
+    }
+
     .options {
       display: flex;
       flex-direction: column;
@@ -243,7 +288,6 @@
       border-color: var(--gold-line);
       border-left-color: var(--gold);
       box-shadow: var(--shadow-md);
-      background: var(--white);
     }
 
     .option.selected {
@@ -266,27 +310,11 @@
       transition: background 0.2s;
     }
 
-    .option.selected .option-icon {
-      background: rgba(201, 153, 58, 0.15);
-    }
+    .option.selected .option-icon { background: rgba(201, 153, 58, 0.15); }
 
-    .option-text {
-      flex: 1;
-    }
-
-    .option-label {
-      font-weight: 600;
-      font-size: 15px;
-      color: var(--gray-800);
-    }
-
-    .option-desc {
-      font-size: 13px;
-      color: var(--gray-400);
-      font-weight: 300;
-      margin-top: 2px;
-      line-height: 1.4;
-    }
+    .option-text { flex: 1; }
+    .option-label { font-weight: 600; font-size: 15px; color: var(--gray-800); }
+    .option-desc { font-size: 13px; color: var(--gray-400); font-weight: 300; margin-top: 2px; line-height: 1.4; }
 
     .option-check {
       width: 22px;
@@ -300,31 +328,25 @@
       transition: all 0.25s ease;
     }
 
-    .option.selected .option-check {
-      border-color: var(--gold);
-      background: var(--gold);
-    }
+    .option.selected .option-check { border-color: var(--gold); background: var(--gold); }
+    .option.selected .option-check::after { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--white); }
 
-    .option.selected .option-check::after {
-      content: '';
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--white);
+    /* Urgency response banner */
+    .urgency-response {
+      background: linear-gradient(135deg, var(--navy-deep), var(--navy));
+      color: var(--white);
+      border-radius: 10px;
+      padding: 16px 18px;
+      margin-bottom: 24px;
+      font-size: 14px;
+      line-height: 1.6;
+      display: none;
     }
+    .urgency-response.visible { display: block; animation: slideIn 0.4s ease; }
+    .urgency-response strong { color: var(--gold); }
 
-    /* ── INPUTS ── */
-    .input-group {
-      margin-bottom: 16px;
-    }
-
-    .input-label {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--gray-600);
-      margin-bottom: 6px;
-      display: block;
-    }
+    .input-group { margin-bottom: 16px; }
+    .input-label { font-size: 13px; font-weight: 600; color: var(--gray-600); margin-bottom: 6px; display: block; }
 
     .input-field {
       width: 100%;
@@ -340,12 +362,14 @@
       box-shadow: var(--shadow-sm);
     }
 
-    .input-field:focus {
-      border-color: var(--gold);
-      box-shadow: 0 0 0 3px var(--gold-soft);
-    }
-
+    .input-field:focus { border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold-soft); }
     .input-field::placeholder { color: var(--gray-400); }
+
+    .input-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
 
     select.input-field {
       appearance: none;
@@ -355,12 +379,7 @@
       padding-right: 40px;
     }
 
-    /* ── BUTTONS ── */
-    .btn-row {
-      display: flex;
-      gap: 12px;
-      margin-top: 32px;
-    }
+    .btn-row { display: flex; gap: 12px; margin-top: 32px; }
 
     .btn-back {
       padding: 14px 24px;
@@ -375,7 +394,6 @@
       transition: all 0.2s;
       box-shadow: var(--shadow-sm);
     }
-
     .btn-back:hover { background: var(--gray-100); }
 
     .btn-next {
@@ -392,7 +410,6 @@
       transition: all 0.25s ease;
       box-shadow: 0 4px 16px rgba(27,53,80,0.2);
     }
-
     .btn-next:hover { background: var(--navy-light); transform: translateY(-1px); }
     .btn-next:disabled { opacity: 0.35; cursor: not-allowed; transform: none; box-shadow: none; }
     .btn-next:active:not(:disabled) { transform: scale(0.98); }
@@ -418,7 +435,6 @@
       margin-top: 28px;
       animation: ctaPulse 2.5s ease-in-out infinite;
     }
-
     .btn-wa:hover { background: var(--green-hover); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(37,211,102,0.35); }
     .btn-wa:active { transform: scale(0.98); }
     .btn-wa svg { width: 22px; height: 22px; fill: currentColor; }
@@ -428,13 +444,15 @@
       50% { box-shadow: 0 4px 28px rgba(37,211,102,0.45); }
     }
 
-    /* ── SUMMARY ── */
-    .summary-list {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-bottom: 24px;
+    .wa-subtext {
+      text-align: center;
+      font-size: 13px;
+      color: var(--gray-400);
+      margin-top: 10px;
+      font-weight: 400;
     }
+
+    .summary-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
 
     .summary-item {
       display: flex;
@@ -447,21 +465,8 @@
       border-radius: 8px;
       box-shadow: var(--shadow-sm);
     }
-
-    .summary-label {
-      font-size: 12px;
-      color: var(--gray-400);
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .summary-value {
-      font-size: 14px;
-      color: var(--navy);
-      font-weight: 600;
-      text-align: right;
-    }
+    .summary-label { font-size: 12px; color: var(--gray-400); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
+    .summary-value { font-size: 14px; color: var(--navy); font-weight: 600; text-align: right; }
 
     .overflow-notice {
       background: var(--red-soft);
@@ -470,29 +475,15 @@
       padding: 16px;
       margin-bottom: 24px;
     }
+    .overflow-notice p { font-size: 14px; color: var(--red); font-weight: 500; line-height: 1.6; }
 
-    .overflow-notice p {
-      font-size: 14px;
-      color: var(--red);
-      font-weight: 500;
-      line-height: 1.6;
-    }
-
-    /* ── TRUST FOOTER ── */
     .trust-footer {
       padding: 24px 24px;
       text-align: center;
       border-top: 1px solid var(--gray-200);
       background: var(--cream);
     }
-
-    .trust-footer p {
-      font-size: 11px;
-      color: var(--gray-400);
-      line-height: 1.6;
-      max-width: 480px;
-      margin: 0 auto;
-    }
+    .trust-footer p { font-size: 11px; color: var(--gray-400); line-height: 1.6; max-width: 480px; margin: 0 auto; }
 
     .trust-badges {
       display: flex;
@@ -501,7 +492,6 @@
       gap: 24px;
       margin-bottom: 12px;
     }
-
     .trust-badge {
       display: flex;
       align-items: center;
@@ -510,18 +500,8 @@
       color: var(--gray-600);
       font-weight: 500;
     }
+    .trust-badge svg { width: 14px; height: 14px; stroke: var(--gold); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
 
-    .trust-badge svg {
-      width: 14px;
-      height: 14px;
-      stroke: var(--gold);
-      fill: none;
-      stroke-width: 2.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
       .quiz-wrap { padding: 24px 16px 40px; }
       .option { padding: 16px; }
@@ -533,12 +513,13 @@
       .nav { padding: 14px 16px; }
       .summary-item { padding: 12px 14px; }
       .btn-wa { padding: 16px 28px; font-size: 16px; }
+      .input-row { grid-template-columns: 1fr; }
+      .promise-bar { font-size: 13px; padding: 12px 16px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav class="nav">
     <a href="../" class="nav-brand">Erika Parra Services</a>
     <div class="lang-toggle">
@@ -547,73 +528,115 @@
     </div>
   </nav>
 
-  <!-- TRUST BAR -->
   <div class="quiz-trust-bar">
     <span class="trust-stars">★★★★★</span>
     <span data-es="600+ familias ayudadas" data-en="600+ families helped"></span>
     <span class="trust-dot">·</span>
     <span data-es="Consulta gratuita" data-en="Free consultation"></span>
     <span class="trust-dot">·</span>
-    <span data-es="Respuesta en 24h" data-en="Response within 24h"></span>
+    <span data-es="Respuesta en menos de 2 horas" data-en="Response in under 2 hours"></span>
   </div>
 
-  <!-- PROGRESS -->
+  <div class="promise-bar">
+    <span data-es="Responde <strong>6 preguntas</strong> y recibe tu <strong>evaluación personalizada gratis</strong> en menos de 2 horas." data-en="Answer <strong>6 questions</strong> and get your <strong>free personalized evaluation</strong> in under 2 hours."></span>
+  </div>
+
   <div class="progress-wrap">
     <div class="progress-text" id="progress-text"></div>
     <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
   </div>
 
-  <!-- QUIZ -->
   <div class="quiz-wrap">
     <div class="quiz-card">
 
-      <!-- STEP 1: Case Type -->
+      <!-- STEP 1: Urgency (Hormozi — capture emotional state first) -->
       <div class="step active" id="step-1">
+        <h2 class="step-question" data-es="¿Qué tan urgente es tu situación?" data-en="How urgent is your situation?"></h2>
+        <p class="step-sub" data-es="Tu respuesta nos ayuda a priorizar tu caso." data-en="Your answer helps us prioritize your case."></p>
+        <div class="options">
+          <button class="option" onclick="selectOption(1, 'urgent')">
+            <div class="option-icon">🚨</div>
+            <div class="option-text">
+              <div class="option-label" data-es="Urgente" data-en="Urgent"></div>
+              <div class="option-desc" data-es="Tengo fecha de corte, contacto con ICE, o necesito actuar ya" data-en="I have a court date, ICE contact, or need to act now"></div>
+            </div>
+            <div class="option-check"></div>
+          </button>
+          <button class="option" onclick="selectOption(1, '30-days')">
+            <div class="option-icon">📅</div>
+            <div class="option-text">
+              <div class="option-label" data-es="Dentro de 30 días" data-en="Within 30 days"></div>
+              <div class="option-desc" data-es="Necesito empezar pronto pero no es una emergencia" data-en="I need to start soon but it's not an emergency"></div>
+            </div>
+            <div class="option-check"></div>
+          </button>
+          <button class="option" onclick="selectOption(1, 'exploring')">
+            <div class="option-icon">🔍</div>
+            <div class="option-text">
+              <div class="option-label" data-es="Estoy explorando mis opciones" data-en="I'm exploring my options"></div>
+              <div class="option-desc" data-es="Quiero saber qué puedo hacer y cuánto cuesta" data-en="I want to know what I can do and how much it costs"></div>
+            </div>
+            <div class="option-check"></div>
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 2: Case Type -->
+      <div class="step" id="step-2">
+        <div class="urgency-response" id="urgency-response"></div>
         <h2 class="step-question" data-es="¿Qué tipo de ayuda necesitas?" data-en="What type of help do you need?"></h2>
         <p class="step-sub" data-es="Selecciona el servicio que mejor describe tu situación." data-en="Select the service that best describes your situation."></p>
         <div class="options">
-          <button class="option" onclick="selectOption(1, 'family')">
-            <div class="option-icon">&#x1F46A;</div>
+          <button class="option" onclick="selectOption(2, 'family')">
+            <div class="option-icon">👨‍👩‍👧‍👦</div>
             <div class="option-text">
               <div class="option-label" data-es="Peticiones Familiares" data-en="Family Petitions"></div>
               <div class="option-desc" data-es="Ajuste de estatus, residencia, reunificación familiar" data-en="Adjustment of status, residency, family reunification"></div>
             </div>
             <div class="option-check"></div>
           </button>
-          <button class="option" onclick="selectOption(1, 'asylum')">
-            <div class="option-icon">&#x1F6E1;</div>
+          <button class="option" onclick="selectOption(2, 'asylum')">
+            <div class="option-icon">🛡️</div>
             <div class="option-text">
               <div class="option-label" data-es="Asilo" data-en="Asylum"></div>
               <div class="option-desc" data-es="Solicitud de asilo y preparación para entrevista" data-en="Asylum application and interview preparation"></div>
             </div>
             <div class="option-check"></div>
           </button>
-          <button class="option" onclick="selectOption(1, 'work-permit')">
-            <div class="option-icon">&#x1F4BC;</div>
+          <button class="option" onclick="selectOption(2, 'work-permit')">
+            <div class="option-icon">💼</div>
             <div class="option-text">
               <div class="option-label" data-es="Permiso de Trabajo (EAD)" data-en="Work Permit (EAD)"></div>
               <div class="option-desc" data-es="Autorización de empleo" data-en="Employment authorization"></div>
             </div>
             <div class="option-check"></div>
           </button>
-          <button class="option" onclick="selectOption(1, 'tps')">
-            <div class="option-icon">&#x1F1FA;&#x1F1F8;</div>
+          <button class="option" onclick="selectOption(2, 'foia')">
+            <div class="option-icon">📋</div>
             <div class="option-text">
-              <div class="option-label" data-es="TPS" data-en="TPS"></div>
-              <div class="option-desc" data-es="Estatus de Protección Temporal" data-en="Temporary Protected Status"></div>
+              <div class="option-label" data-es="FOIA / Récords de Inmigración" data-en="FOIA / Immigration Records"></div>
+              <div class="option-desc" data-es="Solicitar tus récords del gobierno" data-en="Request your government records"></div>
             </div>
             <div class="option-check"></div>
           </button>
-          <button class="option" onclick="selectOption(1, 'deportation')">
-            <div class="option-icon">&#x26A0;</div>
+          <button class="option" onclick="selectOption(2, 'marriage')">
+            <div class="option-icon">💍</div>
+            <div class="option-text">
+              <div class="option-label" data-es="Residencia por Matrimonio" data-en="Marriage Green Card"></div>
+              <div class="option-desc" data-es="Green card a través de cónyuge ciudadano o residente" data-en="Green card through US citizen or resident spouse"></div>
+            </div>
+            <div class="option-check"></div>
+          </button>
+          <button class="option" onclick="selectOption(2, 'deportation')">
+            <div class="option-icon">⚠️</div>
             <div class="option-text">
               <div class="option-label" data-es="Defensa de Deportación" data-en="Deportation Defense"></div>
               <div class="option-desc" data-es="Procedimientos de remoción, detención por ICE" data-en="Removal proceedings, ICE detention"></div>
             </div>
             <div class="option-check"></div>
           </button>
-          <button class="option" onclick="selectOption(1, 'other')">
-            <div class="option-icon">&#x2753;</div>
+          <button class="option" onclick="selectOption(2, 'other')">
+            <div class="option-icon">❓</div>
             <div class="option-text">
               <div class="option-label" data-es="Otro / No estoy seguro" data-en="Other / Not sure"></div>
               <div class="option-desc" data-es="DACA, visas, ciudadanía, u otra consulta" data-en="DACA, visas, citizenship, or other inquiry"></div>
@@ -621,44 +644,77 @@
             <div class="option-check"></div>
           </button>
         </div>
+        <div class="btn-row">
+          <button class="btn-back" onclick="goBack()" data-es="Atrás" data-en="Back"></button>
+        </div>
       </div>
 
-      <!-- STEP 2: Current Status -->
-      <div class="step" id="step-2">
+      <!-- STEP 2B: Deportation overflow (immediate redirect) -->
+      <div class="step" id="step-2b">
+        <h2 class="step-question" data-es="Tu caso necesita un abogado" data-en="Your case needs an attorney"></h2>
+        <p class="step-sub" data-es="Los casos de deportación requieren representación legal de un abogado con licencia. Nosotros preparamos documentos — no representamos en corte. Pero podemos conectarte con un abogado de inmigración calificado." data-en="Deportation cases require legal representation from a licensed attorney. We prepare documents — we don't represent in court. But we can connect you with a qualified immigration attorney."></p>
+        <div class="trust-callout">
+          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <span data-es="Déjanos tu información y te referimos a un abogado de confianza en tu área. Sin costo." data-en="Leave us your info and we'll refer you to a trusted attorney in your area. No charge."></span>
+        </div>
+        <div class="input-group">
+          <label class="input-label" data-es="Tu nombre" data-en="Your name"></label>
+          <input class="input-field" type="text" id="overflow-name" data-placeholder-es="Nombre completo" data-placeholder-en="Full name">
+        </div>
+        <div class="input-group">
+          <label class="input-label" data-es="Tu teléfono" data-en="Your phone"></label>
+          <input class="input-field" type="tel" id="overflow-phone" data-placeholder-es="(786) 000-0000" data-placeholder-en="(786) 000-0000">
+        </div>
+        <div class="input-group">
+          <label class="input-label" data-es="Tu estado" data-en="Your state"></label>
+          <input class="input-field" type="text" id="overflow-state" data-placeholder-es="Ej: Florida, Texas" data-placeholder-en="E.g.: Florida, Texas">
+        </div>
+        <a id="overflow-wa-cta" href="#" class="btn-wa" target="_blank" rel="noopener" onclick="fireOverflowLead()">
+          <span data-es="Enviar y conectar con abogado" data-en="Submit and connect with attorney"></span>
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none"/><polyline points="12 5 19 12 12 19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        </a>
+        <div class="btn-row">
+          <button class="btn-back" onclick="showStep(2)" data-es="Atrás" data-en="Back"></button>
+          <div></div>
+        </div>
+      </div>
+
+      <!-- STEP 3: Current Status -->
+      <div class="step" id="step-3">
         <h2 class="step-question" data-es="¿Cuál es tu estatus migratorio actual?" data-en="What is your current immigration status?"></h2>
-        <p class="step-sub" data-es="Tu información es 100% confidencial y protegida." data-en="Your information is 100% confidential and protected."></p>
+        <p class="step-sub" data-es="Esto nos ayuda a entender qué opciones tienes disponibles." data-en="This helps us understand what options are available to you."></p>
         <div class="options">
-          <button class="option" onclick="selectOption(2, 'undocumented')">
+          <button class="option" onclick="selectOption(3, 'undocumented')">
             <div class="option-text">
               <div class="option-label" data-es="Sin documentos" data-en="Undocumented"></div>
             </div>
             <div class="option-check"></div>
           </button>
-          <button class="option" onclick="selectOption(2, 'visa-holder')">
+          <button class="option" onclick="selectOption(3, 'visa-holder')">
             <div class="option-text">
               <div class="option-label" data-es="Tengo visa" data-en="Visa holder"></div>
             </div>
             <div class="option-check"></div>
           </button>
-          <button class="option" onclick="selectOption(2, 'green-card')">
+          <button class="option" onclick="selectOption(3, 'green-card')">
             <div class="option-text">
               <div class="option-label" data-es="Residente permanente (Green Card)" data-en="Permanent resident (Green Card)"></div>
             </div>
             <div class="option-check"></div>
           </button>
-          <button class="option" onclick="selectOption(2, 'tps-daca')">
+          <button class="option" onclick="selectOption(3, 'tps-daca')">
             <div class="option-text">
               <div class="option-label" data-es="TPS o DACA" data-en="TPS or DACA"></div>
             </div>
             <div class="option-check"></div>
           </button>
-          <button class="option" onclick="selectOption(2, 'citizen-helping')">
+          <button class="option" onclick="selectOption(3, 'citizen-helping')">
             <div class="option-text">
               <div class="option-label" data-es="Ciudadano ayudando a un familiar" data-en="US citizen helping a family member"></div>
             </div>
             <div class="option-check"></div>
           </button>
-          <button class="option" onclick="selectOption(2, 'other-status')">
+          <button class="option" onclick="selectOption(3, 'other-status')">
             <div class="option-text">
               <div class="option-label" data-es="Otro / No estoy seguro" data-en="Other / Not sure"></div>
             </div>
@@ -670,86 +726,8 @@
         </div>
       </div>
 
-      <!-- STEP 3: Entry Method -->
-      <div class="step" id="step-3">
-        <h2 class="step-question" data-es="¿Cómo ingresaste a los Estados Unidos?" data-en="How did you enter the United States?"></h2>
-        <p class="step-sub" data-es="Tu última entrada al país. Esta información es confidencial y nos ayuda a evaluar tu caso." data-en="Your most recent entry. This information is confidential and helps us evaluate your case."></p>
-        <div class="options">
-          <button class="option" onclick="selectOption(3, 'visa-entry')">
-            <div class="option-text">
-              <div class="option-label" data-es="Entré con visa" data-en="I entered with a visa"></div>
-              <div class="option-desc" data-es="Visa de turista, trabajo, estudiante u otra" data-en="Tourist, work, student, or other visa"></div>
-            </div>
-            <div class="option-check"></div>
-          </button>
-          <button class="option" onclick="selectOption(3, 'border-parole')">
-            <div class="option-text">
-              <div class="option-label" data-es="Entré por la frontera con parole" data-en="I entered at the border with parole"></div>
-              <div class="option-desc" data-es="CBP One, parole humanitario u otro programa" data-en="CBP One, humanitarian parole, or other program"></div>
-            </div>
-            <div class="option-check"></div>
-          </button>
-          <button class="option" onclick="selectOption(3, 'border-no-docs')">
-            <div class="option-text">
-              <div class="option-label" data-es="Crucé la frontera sin documentos" data-en="I crossed the border without documents"></div>
-            </div>
-            <div class="option-check"></div>
-          </button>
-          <button class="option" onclick="selectOption(3, 'overstay')">
-            <div class="option-text">
-              <div class="option-label" data-es="Mi visa expiró y me quedé" data-en="My visa expired and I stayed"></div>
-            </div>
-            <div class="option-check"></div>
-          </button>
-          <button class="option" onclick="selectOption(3, 'born-here')">
-            <div class="option-text">
-              <div class="option-label" data-es="Nací aquí / Soy ciudadano ayudando a alguien" data-en="I was born here / I'm a citizen helping someone"></div>
-            </div>
-            <div class="option-check"></div>
-          </button>
-          <button class="option" onclick="selectOption(3, 'not-sure-entry')">
-            <div class="option-text">
-              <div class="option-label" data-es="No estoy seguro / Prefiero no decir" data-en="Not sure / Prefer not to say"></div>
-            </div>
-            <div class="option-check"></div>
-          </button>
-        </div>
-        <div class="btn-row">
-          <button class="btn-back" onclick="goBack()" data-es="Atrás" data-en="Back"></button>
-        </div>
-      </div>
-
-      <!-- STEP 4: Urgency -->
+      <!-- STEP 4: Location -->
       <div class="step" id="step-4">
-        <h2 class="step-question" data-es="¿Qué tan pronto necesitas ayuda?" data-en="How soon do you need help?"></h2>
-        <p class="step-sub" data-es="Esto nos ayuda a priorizar tu caso." data-en="This helps us prioritize your case."></p>
-        <div class="options">
-          <button class="option" onclick="selectOption(4, 'urgent')">
-            <div class="option-text">
-              <div class="option-label" data-es="Urgente — Tengo fecha de corte o contacto con ICE" data-en="Urgent — I have a court date or ICE contact"></div>
-            </div>
-            <div class="option-check"></div>
-          </button>
-          <button class="option" onclick="selectOption(4, '30-days')">
-            <div class="option-text">
-              <div class="option-label" data-es="Dentro de 30 días" data-en="Within 30 days"></div>
-            </div>
-            <div class="option-check"></div>
-          </button>
-          <button class="option" onclick="selectOption(4, 'exploring')">
-            <div class="option-text">
-              <div class="option-label" data-es="Estoy explorando mis opciones" data-en="I'm exploring my options"></div>
-            </div>
-            <div class="option-check"></div>
-          </button>
-        </div>
-        <div class="btn-row">
-          <button class="btn-back" onclick="goBack()" data-es="Atrás" data-en="Back"></button>
-        </div>
-      </div>
-
-      <!-- STEP 5: Location -->
-      <div class="step" id="step-5">
         <h2 class="step-question" data-es="¿Dónde te encuentras?" data-en="Where are you located?"></h2>
         <p class="step-sub" data-es="Necesitamos tu ubicación para conectarte con el servicio correcto." data-en="We need your location to connect you with the right service."></p>
         <div class="input-group">
@@ -776,25 +754,95 @@
         </div>
         <div class="input-group">
           <label class="input-label" data-es="Ciudad" data-en="City"></label>
-          <input class="input-field" type="text" id="input-city" placeholder="" oninput="checkStep4()" data-placeholder-es="Tu ciudad" data-placeholder-en="Your city">
+          <input class="input-field" type="text" id="input-city" oninput="checkStep4()" data-placeholder-es="Tu ciudad" data-placeholder-en="Your city">
         </div>
         <div class="btn-row">
           <button class="btn-back" onclick="goBack()" data-es="Atrás" data-en="Back"></button>
-          <button class="btn-next" id="btn-step5" onclick="goNext()" disabled data-es="Continuar" data-en="Continue"></button>
+          <button class="btn-next" id="btn-step4" onclick="goNext()" disabled data-es="Continuar" data-en="Continue"></button>
         </div>
       </div>
 
-      <!-- STEP 6: Contact Info -->
+      <!-- STEP 5: Entry Method (sensitive — with trust reinforcement) -->
+      <div class="step" id="step-5">
+        <h2 class="step-question" data-es="¿Cómo ingresaste a los Estados Unidos?" data-en="How did you enter the United States?"></h2>
+        <p class="step-sub" data-es="Para saber qué opciones legales tienes, necesitamos entender cómo llegaste. No importa cómo — hay opciones para cada situación." data-en="To know what legal options you have, we need to understand how you arrived. No matter how — there are options for every situation."></p>
+        <div class="trust-callout">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span data-es="Tu información está protegida. No se comparte con ninguna agencia del gobierno. Solo la usa Erika para evaluar tu caso." data-en="Your information is protected. It is not shared with any government agency. Only Erika uses it to evaluate your case."></span>
+        </div>
+        <div class="options">
+          <button class="option" onclick="selectOption(5, 'visa-entry')">
+            <div class="option-text">
+              <div class="option-label" data-es="Entré con visa" data-en="I entered with a visa"></div>
+              <div class="option-desc" data-es="Visa de turista, trabajo, estudiante u otra" data-en="Tourist, work, student, or other visa"></div>
+            </div>
+            <div class="option-check"></div>
+          </button>
+          <button class="option" onclick="selectOption(5, 'border-parole')">
+            <div class="option-text">
+              <div class="option-label" data-es="Entré por la frontera con parole" data-en="I entered at the border with parole"></div>
+              <div class="option-desc" data-es="CBP One, parole humanitario u otro programa" data-en="CBP One, humanitarian parole, or other program"></div>
+            </div>
+            <div class="option-check"></div>
+          </button>
+          <button class="option" onclick="selectOption(5, 'without-inspection')">
+            <div class="option-text">
+              <div class="option-label" data-es="Entré sin inspección" data-en="I entered without inspection"></div>
+              <div class="option-desc" data-es="Crucé sin pasar por un punto de entrada oficial" data-en="I crossed without going through an official port of entry"></div>
+            </div>
+            <div class="option-check"></div>
+          </button>
+          <button class="option" onclick="selectOption(5, 'overstay')">
+            <div class="option-text">
+              <div class="option-label" data-es="Mi visa expiró y me quedé" data-en="My visa expired and I stayed"></div>
+            </div>
+            <div class="option-check"></div>
+          </button>
+          <button class="option" onclick="selectOption(5, 'born-here')">
+            <div class="option-text">
+              <div class="option-label" data-es="Nací aquí / Soy ciudadano ayudando a alguien" data-en="I was born here / I'm a citizen helping someone"></div>
+            </div>
+            <div class="option-check"></div>
+          </button>
+          <button class="option" onclick="selectOption(5, 'not-sure-entry')">
+            <div class="option-text">
+              <div class="option-label" data-es="Prefiero discutirlo con Erika" data-en="I'd rather discuss with Erika"></div>
+            </div>
+            <div class="option-check"></div>
+          </button>
+        </div>
+        <div class="btn-row">
+          <button class="btn-back" onclick="goBack()" data-es="Atrás" data-en="Back"></button>
+        </div>
+      </div>
+
+      <!-- STEP 6: Contact Info (with testimonial) -->
       <div class="step" id="step-6">
-        <h2 class="step-question" data-es="¿Cómo te contactamos?" data-en="How do we reach you?"></h2>
-        <p class="step-sub" data-es="Te conectaremos con nuestra especialista." data-en="We'll connect you with our specialist."></p>
-        <div class="input-group">
-          <label class="input-label" data-es="Tu nombre" data-en="Your name"></label>
-          <input class="input-field" type="text" id="input-name" oninput="checkStep5()" data-placeholder-es="Nombre completo" data-placeholder-en="Full name">
+        <h2 class="step-question" data-es="Último paso — ¿cómo te contactamos?" data-en="Last step — how do we reach you?"></h2>
+        <p class="step-sub" data-es="Erika revisará tu caso personalmente y te responderá en menos de 2 horas." data-en="Erika will personally review your case and respond in under 2 hours."></p>
+
+        <div class="inline-testimonial">
+          <p data-es="\"Tenía mucho miedo de empezar el proceso. Erika me explicó todo paso a paso y en 9 días ya tenía mis documentos. Nunca pensé que sería tan fácil.\"" data-en="\"I was very afraid to start the process. Erika explained everything step by step and in 9 days I already had my documents. I never thought it would be so easy.\""></p>
+          <span class="testimonial-attr" data-es="— Cliente verificada, Miami FL" data-en="— Verified client, Miami FL"></span>
+        </div>
+
+        <div class="input-row">
+          <div class="input-group">
+            <label class="input-label" data-es="Nombre" data-en="First name"></label>
+            <input class="input-field" type="text" id="input-fname" oninput="checkStep6()" data-placeholder-es="Tu nombre" data-placeholder-en="First name">
+          </div>
+          <div class="input-group">
+            <label class="input-label" data-es="Apellido" data-en="Last name"></label>
+            <input class="input-field" type="text" id="input-lname" oninput="checkStep6()" data-placeholder-es="Tu apellido" data-placeholder-en="Last name">
+          </div>
         </div>
         <div class="input-group">
-          <label class="input-label" data-es="Tu número de teléfono" data-en="Your phone number"></label>
-          <input class="input-field" type="tel" id="input-phone" oninput="checkStep5()" data-placeholder-es="(786) 000-0000" data-placeholder-en="(786) 000-0000">
+          <label class="input-label" data-es="Teléfono" data-en="Phone"></label>
+          <input class="input-field" type="tel" id="input-phone" oninput="checkStep6()" data-placeholder-es="(786) 000-0000" data-placeholder-en="(786) 000-0000">
+        </div>
+        <div class="input-group">
+          <label class="input-label" data-es="Correo electrónico" data-en="Email"></label>
+          <input class="input-field" type="email" id="input-email" oninput="checkStep6()" data-placeholder-es="tu@correo.com" data-placeholder-en="you@email.com">
         </div>
         <div class="btn-row">
           <button class="btn-back" onclick="goBack()" data-es="Atrás" data-en="Back"></button>
@@ -804,25 +852,21 @@
 
       <!-- STEP 7: Summary + WhatsApp CTA -->
       <div class="step" id="step-7">
-        <h2 class="step-question" data-es="¡Ya casi! Habla con Erika ahora" data-en="Almost there! Talk to Erika now"></h2>
-        <p class="step-sub" data-es="Revisa tu información y envíale un mensaje a Erika para que pueda evaluar tu caso personalmente." data-en="Review your info and message Erika so she can personally evaluate your case."></p>
-
-        <div id="overflow-notice" class="overflow-notice" style="display:none;">
-          <p data-es="Tu caso requiere representación legal de un abogado. Te conectaremos con un abogado de inmigración calificado en tu área." data-en="Your case requires legal representation from an attorney. We'll connect you with a qualified immigration attorney in your area."></p>
-        </div>
+        <h2 class="step-question" data-es="¡Listo! Habla con Erika ahora" data-en="Done! Talk to Erika now"></h2>
+        <p class="step-sub" data-es="Revisa tu información y envíale un mensaje para que evalúe tu caso personalmente." data-en="Review your info and send her a message so she can personally evaluate your case."></p>
 
         <div class="summary-list" id="summary-list"></div>
 
-        <a id="wa-cta" href="#" class="btn-wa" target="_blank" rel="noopener">
-          <span data-es="Iniciar conversación con Erika" data-en="Start a conversation with Erika"></span>
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none"/><polyline points="12 5 19 12 12 19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        <a id="wa-cta" href="#" class="btn-wa" target="_blank" rel="noopener" onclick="fireLeadPixel()">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="white"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.613.613l4.458-1.495A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.24 0-4.327-.722-6.016-1.95l-.42-.318-2.651.889.889-2.651-.318-.42A9.935 9.935 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" fill="white" fill-rule="evenodd"/></svg>
+          <span data-es="Hablar con Erika ahora" data-en="Talk to Erika now"></span>
         </a>
+        <div class="wa-subtext" data-es="Erika responde en menos de 2 horas. Solo acepta 5 casos nuevos por semana." data-en="Erika responds in under 2 hours. She only accepts 5 new cases per week."></div>
       </div>
 
     </div>
   </div>
 
-  <!-- TRUST FOOTER -->
   <div class="trust-footer">
     <div class="trust-badges">
       <div class="trust-badge">
@@ -842,83 +886,98 @@
   </div>
 
   <script>
-    // ── STATE ──
     let currentStep = 1;
     const totalSteps = 7;
     let lang = 'es';
     const answers = {};
+    let leadPixelFired = false;
 
-    // ── LABELS ──
     const labels = {
+      urgency: {
+        es: { urgent: 'Urgente', '30-days': 'Dentro de 30 días', exploring: 'Explorando opciones' },
+        en: { urgent: 'Urgent', '30-days': 'Within 30 days', exploring: 'Exploring options' }
+      },
       caseType: {
-        es: { family: 'Peticiones Familiares', asylum: 'Asilo', 'work-permit': 'Permiso de Trabajo', tps: 'TPS', deportation: 'Defensa de Deportación', other: 'Otro' },
-        en: { family: 'Family Petitions', asylum: 'Asylum', 'work-permit': 'Work Permit', tps: 'TPS', deportation: 'Deportation Defense', other: 'Other' }
+        es: { family: 'Peticiones Familiares', asylum: 'Asilo', 'work-permit': 'Permiso de Trabajo', foia: 'FOIA', marriage: 'Residencia por Matrimonio', deportation: 'Defensa de Deportación', other: 'Otro' },
+        en: { family: 'Family Petitions', asylum: 'Asylum', 'work-permit': 'Work Permit', foia: 'FOIA', marriage: 'Marriage Green Card', deportation: 'Deportation Defense', other: 'Other' }
       },
       status: {
         es: { undocumented: 'Sin documentos', 'visa-holder': 'Tengo visa', 'green-card': 'Residente permanente', 'tps-daca': 'TPS o DACA', 'citizen-helping': 'Ciudadano ayudando a familiar', 'other-status': 'Otro' },
         en: { undocumented: 'Undocumented', 'visa-holder': 'Visa holder', 'green-card': 'Permanent resident', 'tps-daca': 'TPS or DACA', 'citizen-helping': 'US citizen helping family', 'other-status': 'Other' }
       },
       entryMethod: {
-        es: { 'visa-entry': 'Entré con visa', 'border-parole': 'Parole en la frontera', 'border-no-docs': 'Crucé sin documentos', 'overstay': 'Visa expirada', 'born-here': 'Nací aquí / Ciudadano', 'not-sure-entry': 'No estoy seguro' },
-        en: { 'visa-entry': 'Entered with visa', 'border-parole': 'Border parole', 'border-no-docs': 'Crossed without documents', 'overstay': 'Visa overstay', 'born-here': 'Born here / US Citizen', 'not-sure-entry': 'Not sure' }
-      },
-      urgency: {
-        es: { urgent: 'Urgente', '30-days': 'Dentro de 30 días', exploring: 'Explorando opciones' },
-        en: { urgent: 'Urgent', '30-days': 'Within 30 days', exploring: 'Exploring options' }
+        es: { 'visa-entry': 'Entré con visa', 'border-parole': 'Parole en la frontera', 'without-inspection': 'Entré sin inspección', 'overstay': 'Visa expirada', 'born-here': 'Nací aquí / Ciudadano', 'not-sure-entry': 'Prefiere discutir con Erika' },
+        en: { 'visa-entry': 'Entered with visa', 'border-parole': 'Border parole', 'without-inspection': 'Entered without inspection', 'overstay': 'Visa overstay', 'born-here': 'Born here / US Citizen', 'not-sure-entry': 'Prefers to discuss with Erika' }
       },
       stepLabels: {
-        es: ['Servicio', 'Estatus', 'Entrada al país', 'Urgencia', 'Ubicación', 'Contacto'],
-        en: ['Service', 'Status', 'Entry method', 'Urgency', 'Location', 'Contact']
+        es: ['Urgencia', 'Servicio', 'Estatus', 'Ubicación', 'Entrada al país', 'Contacto'],
+        en: ['Urgency', 'Service', 'Status', 'Location', 'Entry method', 'Contact']
       },
       summaryLabels: {
-        es: ['Servicio', 'Estatus migratorio', 'Entrada al país', 'Urgencia', 'Ubicación', 'Nombre', 'Teléfono'],
-        en: ['Service', 'Immigration status', 'Entry method', 'Urgency', 'Location', 'Name', 'Phone']
+        es: ['Urgencia', 'Servicio', 'Estatus migratorio', 'Ubicación', 'Entrada al país', 'Nombre', 'Teléfono', 'Email'],
+        en: ['Urgency', 'Service', 'Immigration status', 'Location', 'Entry method', 'Name', 'Phone', 'Email']
       }
     };
 
-    // Overflow case types (need attorney)
-    const overflowTypes = ['deportation', 'other'];
+    const urgencyResponses = {
+      es: {
+        urgent: '<strong>Entendemos. Tu caso es prioridad.</strong> Vamos a ayudarte lo más rápido posible. Responde las siguientes preguntas para que Erika pueda evaluar tu situación hoy mismo.',
+        '30-days': 'Bien. Tienes tiempo para prepararte bien. Las siguientes preguntas nos ayudan a entender tu caso para darte la mejor orientación.',
+        exploring: 'Perfecto. Explorar tus opciones es el primer paso más inteligente. Responde unas preguntas y Erika te dará una evaluación gratuita.'
+      },
+      en: {
+        urgent: '<strong>We understand. Your case is a priority.</strong> We\'ll help you as fast as possible. Answer the following questions so Erika can evaluate your situation today.',
+        '30-days': 'Good. You have time to prepare properly. The following questions help us understand your case to give you the best guidance.',
+        exploring: 'Perfect. Exploring your options is the smartest first step. Answer a few questions and Erika will give you a free evaluation.'
+      }
+    };
 
-    // ── LANGUAGE ──
     function setLang(l) {
       lang = l;
       document.getElementById('lang-es').classList.toggle('active', l === 'es');
       document.getElementById('lang-en').classList.toggle('active', l === 'en');
       document.documentElement.lang = l;
-      // Update all translatable elements
       document.querySelectorAll('[data-' + l + ']').forEach(el => {
-        el.textContent = el.getAttribute('data-' + l);
+        if (el.tagName === 'SPAN' && el.parentElement.classList.contains('promise-bar')) {
+          el.innerHTML = el.getAttribute('data-' + l);
+        } else {
+          el.textContent = el.getAttribute('data-' + l);
+        }
       });
-      // Update placeholders
       document.querySelectorAll('[data-placeholder-' + l + ']').forEach(el => {
         el.placeholder = el.getAttribute('data-placeholder-' + l);
       });
-      // Update select default options
       document.querySelectorAll('option[data-' + l + ']').forEach(el => {
         el.textContent = el.getAttribute('data-' + l);
       });
+      // Update urgency response if already shown
+      if (answers.urgency) {
+        const ur = document.getElementById('urgency-response');
+        ur.innerHTML = urgencyResponses[lang][answers.urgency];
+      }
       updateProgress();
     }
 
-    // ── PROGRESS ──
     function updateProgress() {
-      const pct = Math.round(((currentStep - 1) / (totalSteps - 1)) * 100);
+      const stepNum = currentStep <= 7 ? currentStep : 7;
+      const pct = Math.round(((stepNum - 1) / (totalSteps - 1)) * 100);
       document.getElementById('progress-fill').style.width = pct + '%';
       const stepLabel = labels.stepLabels[lang];
-      if (currentStep <= 6) {
+      if (stepNum <= 6) {
         document.getElementById('progress-text').textContent =
-          (lang === 'es' ? 'Paso ' : 'Step ') + currentStep + ' / 6 — ' + stepLabel[currentStep - 1];
+          (lang === 'es' ? 'Paso ' : 'Step ') + stepNum + ' / 6 — ' + stepLabel[stepNum - 1];
       } else {
         document.getElementById('progress-text').textContent = lang === 'es' ? 'Listo para conectar' : 'Ready to connect';
       }
     }
 
-    // ── NAVIGATION ──
     function showStep(n) {
       document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
-      document.getElementById('step-' + n).classList.add('active');
-      currentStep = n;
+      const stepId = (n === '2b') ? 'step-2b' : 'step-' + n;
+      document.getElementById(stepId).classList.add('active');
+      currentStep = (n === '2b') ? 2 : n;
       updateProgress();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function goBack() {
@@ -929,121 +988,152 @@
       if (currentStep < totalSteps) showStep(currentStep + 1);
     }
 
-    // ── OPTION SELECT ──
     function selectOption(step, value) {
       const stepEl = document.getElementById('step-' + step);
       stepEl.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
       event.currentTarget.classList.add('selected');
 
-      if (step === 1) answers.caseType = value;
-      if (step === 2) answers.status = value;
-      if (step === 3) answers.entryMethod = value;
-      if (step === 4) answers.urgency = value;
-
-      // Auto-advance after selection with slight delay
-      setTimeout(() => goNext(), 300);
-
-      // Fire pixel events
       if (step === 1) {
+        answers.urgency = value;
+        // Show urgency response on next step
+        const ur = document.getElementById('urgency-response');
+        ur.innerHTML = urgencyResponses[lang][value];
+        ur.classList.add('visible');
+      }
+      if (step === 2) {
+        answers.caseType = value;
+        // Deportation overflow — immediate redirect
+        if (value === 'deportation') {
+          setTimeout(() => showStep('2b'), 300);
+          fbq('trackCustom', 'QuizCaseType', { caseType: value });
+          return;
+        }
+      }
+      if (step === 3) answers.status = value;
+      if (step === 5) answers.entryMethod = value;
+
+      // Fire pixel on case type selection
+      if (step === 2) {
         fbq('trackCustom', 'QuizCaseType', { caseType: value });
       }
+
+      setTimeout(() => goNext(), 300);
     }
 
-    // ── STEP 5 VALIDATION (Location) ──
     function checkStep4() {
       const state = document.getElementById('input-state').value;
       const city = document.getElementById('input-city').value.trim();
-      document.getElementById('btn-step5').disabled = !(state && city.length >= 2);
+      document.getElementById('btn-step4').disabled = !(state && city.length >= 2);
     }
 
-    // ── STEP 6 VALIDATION (Contact) ──
-    function checkStep5() {
-      const name = document.getElementById('input-name').value.trim();
+    function checkStep6() {
+      const fname = document.getElementById('input-fname').value.trim();
+      const lname = document.getElementById('input-lname').value.trim();
       const phone = document.getElementById('input-phone').value.trim();
-      document.getElementById('btn-step6').disabled = !(name.length >= 2 && phone.length >= 7);
+      const email = document.getElementById('input-email').value.trim();
+      document.getElementById('btn-step6').disabled = !(fname.length >= 2 && lname.length >= 1 && phone.length >= 7 && email.includes('@'));
     }
 
-    // ── SUMMARY ──
     function showSummary() {
       answers.state = document.getElementById('input-state').value;
       answers.city = document.getElementById('input-city').value.trim();
-      answers.name = document.getElementById('input-name').value.trim();
+      answers.firstName = document.getElementById('input-fname').value.trim();
+      answers.lastName = document.getElementById('input-lname').value.trim();
       answers.phone = document.getElementById('input-phone').value.trim();
+      answers.email = document.getElementById('input-email').value.trim();
+      answers.fullName = answers.firstName + ' ' + answers.lastName;
 
       const sl = labels.summaryLabels[lang];
-      const isOverflow = overflowTypes.includes(answers.caseType);
 
-      // Show overflow notice if needed
-      document.getElementById('overflow-notice').style.display = isOverflow ? 'block' : 'none';
-
-      // Build summary
       const summaryData = [
-        { label: sl[0], value: labels.caseType[lang][answers.caseType] || answers.caseType },
-        { label: sl[1], value: labels.status[lang][answers.status] || answers.status },
-        { label: sl[2], value: labels.entryMethod[lang][answers.entryMethod] || answers.entryMethod },
-        { label: sl[3], value: labels.urgency[lang][answers.urgency] || answers.urgency },
-        { label: sl[4], value: answers.city + ', ' + answers.state },
-        { label: sl[5], value: answers.name },
-        { label: sl[6], value: answers.phone }
+        { label: sl[0], value: labels.urgency[lang][answers.urgency] || answers.urgency },
+        { label: sl[1], value: labels.caseType[lang][answers.caseType] || answers.caseType },
+        { label: sl[2], value: labels.status[lang][answers.status] || answers.status },
+        { label: sl[3], value: answers.city + ', ' + answers.state },
+        { label: sl[4], value: labels.entryMethod[lang][answers.entryMethod] || answers.entryMethod },
+        { label: sl[5], value: answers.fullName },
+        { label: sl[6], value: answers.phone },
+        { label: sl[7], value: answers.email }
       ];
 
-      const listEl = document.getElementById('summary-list');
-      listEl.innerHTML = summaryData.map(d =>
+      document.getElementById('summary-list').innerHTML = summaryData.map(d =>
         '<div class="summary-item"><span class="summary-label">' + d.label + '</span><span class="summary-value">' + d.value + '</span></div>'
       ).join('');
 
       // Build WhatsApp message
-      const caseLabel = labels.caseType[lang === 'es' ? 'es' : 'en'][answers.caseType];
-      const urgLabel = labels.urgency[lang === 'es' ? 'es' : 'en'][answers.urgency];
-      const statusLabel = labels.status[lang === 'es' ? 'es' : 'en'][answers.status];
-      const entryLabel = labels.entryMethod[lang === 'es' ? 'es' : 'en'][answers.entryMethod];
+      const caseLabel = labels.caseType.es[answers.caseType];
+      const urgLabel = labels.urgency.es[answers.urgency];
+      const statusLabel = labels.status.es[answers.status];
+      const entryLabel = labels.entryMethod.es[answers.entryMethod];
 
-      let waMsg;
-      if (lang === 'es') {
-        waMsg = 'Hola Erika, estoy buscando ayuda con mi caso de inmigración. Aquí está mi información:\n\n'
-          + '• Servicio: ' + caseLabel + '\n'
-          + '• Mi estatus: ' + statusLabel + '\n'
-          + '• Cómo ingresé: ' + entryLabel + '\n'
-          + '• Urgencia: ' + urgLabel + '\n'
-          + '• Ubicación: ' + answers.city + ', ' + answers.state + '\n'
-          + '• Mi nombre: ' + answers.name + '\n\n'
-          + 'Me gustaría saber si puedes ayudarme. ¡Gracias!';
-      } else {
-        waMsg = 'Hi Erika, I\'m looking for help with my immigration case. Here\'s my info:\n\n'
-          + '• Service: ' + caseLabel + '\n'
-          + '• My status: ' + statusLabel + '\n'
-          + '• How I entered: ' + entryLabel + '\n'
-          + '• Urgency: ' + urgLabel + '\n'
-          + '• Location: ' + answers.city + ', ' + answers.state + '\n'
-          + '• My name: ' + answers.name + '\n\n'
-          + 'I\'d like to know if you can help me. Thank you!';
-      }
+      const waMsg = 'Hola Erika, estoy buscando ayuda con mi caso de inmigración.\n\n'
+        + '• Urgencia: ' + urgLabel + '\n'
+        + '• Servicio: ' + caseLabel + '\n'
+        + '• Mi estatus: ' + statusLabel + '\n'
+        + '• Cómo ingresé: ' + entryLabel + '\n'
+        + '• Ubicación: ' + answers.city + ', ' + answers.state + '\n'
+        + '• Nombre: ' + answers.fullName + '\n'
+        + '• Teléfono: ' + answers.phone + '\n'
+        + '• Email: ' + answers.email + '\n\n'
+        + 'Me gustaría saber si puedes ayudarme. ¡Gracias!';
 
-      const waUrl = 'https://wa.me/17868306859?text=' + encodeURIComponent(waMsg);
-      document.getElementById('wa-cta').href = waUrl;
+      document.getElementById('wa-cta').href = 'https://wa.me/17868306859?text=' + encodeURIComponent(waMsg);
 
-      // Log to Google Sheet
       logToSheet();
-
       showStep(7);
+    }
 
-      // Fire pixel Lead event — this is what Meta optimizes against
+    // Lead pixel fires ONLY on WhatsApp click — not on step load
+    function fireLeadPixel() {
+      if (leadPixelFired) return;
+      leadPixelFired = true;
       fbq('track', 'Lead', {
         content_name: answers.caseType,
-        content_category: isOverflow ? 'overflow' : 'direct',
-        value: isOverflow ? 0 : 1,
+        content_category: 'direct',
+        value: 1,
         currency: 'USD'
       });
     }
 
-    // ── GOOGLE SHEET LOGGER ──
+    // Overflow (deportation) lead
+    function fireOverflowLead() {
+      const name = document.getElementById('overflow-name').value.trim();
+      const phone = document.getElementById('overflow-phone').value.trim();
+      const state = document.getElementById('overflow-state').value.trim();
+
+      const waMsg = 'Hola Erika, necesito ayuda urgente con un caso de deportación.\n\n'
+        + '• Nombre: ' + name + '\n'
+        + '• Teléfono: ' + phone + '\n'
+        + '• Estado: ' + state + '\n\n'
+        + 'Me dijeron que necesito un abogado. ¿Me pueden referir a alguien?';
+
+      document.getElementById('overflow-wa-cta').href = 'https://wa.me/17868306859?text=' + encodeURIComponent(waMsg);
+
+      // Log overflow to sheet
+      fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: name, phone: phone, caseType: 'Deportación (overflow)', location: state, urgency: answers.urgency ? labels.urgency.es[answers.urgency] : 'N/A', lang: lang })
+      }).catch(function() {});
+
+      fbq('track', 'Lead', {
+        content_name: 'deportation',
+        content_category: 'overflow',
+        value: 0,
+        currency: 'USD'
+      });
+    }
+
     const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxHYYWBx1E3SkstULaG2fpaZ9BF7Z__dfDMMqFglOl3kJHEUrFYCzVftRX3uP3VpMw/exec';
 
     function logToSheet() {
-      if (!APPS_SCRIPT_URL) return; // Skip if not configured yet
       const payload = {
-        name: answers.name,
+        name: answers.fullName,
+        firstName: answers.firstName,
+        lastName: answers.lastName,
         phone: answers.phone,
+        email: answers.email,
         caseType: labels.caseType[lang][answers.caseType] || answers.caseType,
         status: labels.status[lang][answers.status] || answers.status,
         entryMethod: labels.entryMethod[lang][answers.entryMethod] || answers.entryMethod,
@@ -1051,16 +1141,14 @@
         location: answers.city + ', ' + answers.state,
         lang: lang
       };
-      // Fire and forget — don't block the WhatsApp CTA
       fetch(APPS_SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
-      }).catch(function() {}); // Silent fail, WhatsApp is primary
+      }).catch(function() {});
     }
 
-    // ── INIT ──
     setLang('es');
     updateProgress();
   </script>
